@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Рейтинг тяночек</title>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Рейтинг тяночек</title>
+    <meta name="theme-color" content="#FF1493">
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -14,6 +15,7 @@
 
     <!-- Local styles -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
 
     <!-- Google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
@@ -21,22 +23,13 @@
     <!-- Fontawesome - icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
-    <!-- Clipboard -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js">
-        new ClipboardJS('#copy-dump');
-    </script>
-
     <!-- Local scripts -->
     <script src="js/main.js" type="text/javascript"></script>
 
 </head>
 <body>
+    <!-- Основная часть с доской -->
     <div class="container-fluid">
-        <div class="row">
-            <!--<div class="col-12">-->
-                <!--<h1 class="display-4 main-header">Рейтинг тяночек</h1>-->
-            <!--</div>-->
-        </div>
         <div class="row justify-content-md-center">
             <div class="col-12 table-body">
                 <div class="container-fluid">
@@ -46,67 +39,33 @@
                     <div id="inner-div">
                         strt
                     </div>
-                    <div class="row row-special">
-                        <div class="col-12">Настройки</div>
-                    </div>
-                    <div class="row add-girl-row row-even">
-                            <div class="col-5">
-                                <div class="table-text">
-                                    <input type="text" id="img-link" placeholder="URL фотографии" class="input-link">
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="table-text">
-                                    <input type="text" id="name" placeholder="Как называть" class="input-link">
-                                </div>
-                            </div>
-                            <div class="col-1" style="text-align: left">
-                                <div class="table-text">
-                                    <i class="fas fa-plus-circle add-button add-girl-button" id="add-girl-button"></i>
-                                </div>
-                            </div>
-                    </div>
-
-                    <div class="row add-girl-row row-odd">
-                        <div class="col-11">
-                            <div class="table-text">
-                                <input type="text" id="export" class="input-link" readonly>
-                            </div>
-                        </div>
-                        <div class="col-1" style="text-align: left">
-                            <div class="table-text">
-                                <i class="fas fa-copy add-button add-girl-button" id="copy-damp" data-clipboard-target="#export" data-clipboard-action="copy"></i>
-                                <script src="js/clipboard.min.js"></script>
-                                <script>
-                                    var clipboard = new ClipboardJS('#copy-damp');
-
-                                    clipboard.on('success', function(e) {
-                                        console.log(e);
-                                    });
-
-                                    clipboard.on('error', function(e) {
-                                        console.log(e);
-                                    });
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row add-girl-row row-even">
-                        <div class="col-11">
-                            <div class="table-text">
-                                <input type="text" id="import" class="input-link">
-                            </div>
-                        </div>
-                        <div class="col-1" style="text-align: left">
-                            <div class="table-text">
-                                <i class="fas fa-file-import add-button add-girl-button" id="import-btn"></i>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        <!-- Менюшка с переключателями -->
+        <div class="row justify-content-md-center menu">
+            <div class="col-4">
+                <div class="table-text">
+                    <a href="#" class="menu-button">
+                        <i class="fas fa-medal"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="table-text">
+                    <a href="#" class="menu-button">
+                        <i class="fas fa-th-list"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="table-text">
+                    <a href="settings.html" class="menu-button">
+                        <i class="fas fa-wrench menu-selected"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
 </body>
 </html>

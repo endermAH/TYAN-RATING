@@ -20,7 +20,7 @@ $(document).on('click','#add-girl-button', function(){
 });
 
 $(document).ready(function () {
-    new ClipboardJS('#copy-dump');
+    //new ClipboardJS('#copy-dump');
     showList();
 
     var stored = localStorage['girlDate'];
@@ -74,7 +74,7 @@ function showList(){
     for (i = 0;  i < girlDate[0].length; i++){
         if (i == 5) {
             $('#inner-div').append('<div class="row row-special">\n' +
-                '                        <div class="col-12">Остальная шваль</div>\n' +
+                '                        <div class="col-12">Остальные</div>\n' +
                 '                    </div>');
         }
         $('#inner-div').append(

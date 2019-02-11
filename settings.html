@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Settings</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#FF1493">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!-- Local styles -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+
+    <!-- Google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+    <!-- Fontawesome - icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+    <!-- Local scripts -->
+    <script src="js/main.js" type="text/javascript"></script>
+</head>
+<body>
+    <!-- Блок с настройками -->
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="settings-body col-12">
+                <div class="container-fluid">
+                    <div class="row row-special">
+                        <div class="col-12">Настройки</div>
+                    </div>
+                    <div class="row add-girl-row row-even">
+                        <div class="col-5">
+                            <div class="table-text">
+                                <input type="text" id="img-link" placeholder="URL фотографии" class="input-link">
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="table-text">
+                                <input type="text" id="name" placeholder="Как называть" class="input-link">
+                            </div>
+                        </div>
+                        <div class="col-2" style="text-align: left">
+                            <div class="table-text">
+                                <i class="fas fa-plus-circle add-button add-girl-button" id="add-girl-button"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row add-girl-row row-odd">
+                        <div class="col-10">
+                            <div class="table-text">
+                                <input type="text" id="export" class="input-link" readonly>
+                            </div>
+                        </div>
+                        <div class="col-2" style="text-align: left">
+                            <div class="table-text">
+                                <i class="fas fa-copy add-button add-girl-button" id="copy-damp" data-clipboard-target="#export" data-clipboard-action="copy"></i>
+                                <script src="js/clipboard.min.js"></script>
+                                <script>
+                                    var clipboard = new ClipboardJS('#copy-damp');
+
+                                    clipboard.on('success', function(e) {
+                                        console.log(e);
+                                    });
+
+                                    clipboard.on('error', function(e) {
+                                        console.log(e);
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row add-girl-row row-even">
+                        <div class="col-10">
+                            <div class="table-text">
+                                <input type="text" id="import" class="input-link">
+                            </div>
+                        </div>
+                        <div class="col-2" style="text-align: left">
+                            <div class="table-text">
+                                <i class="fas fa-file-import add-button add-girl-button" id="import-btn"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Менюшка с переключателями -->
+    <div class="row justify-content-md-center menu">
+        <div class="col-4">
+            <div class="table-text">
+                <a href="index.html" class="menu-button">
+                    <i class="fas fa-medal"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="table-text">
+                <a href="#" class="menu-button">
+                    <i class="fas fa-th-list"></i>
+                </a>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="table-text">
+                <a href="#" class="menu-button">
+                    <i class="fas fa-wrench menu-selected"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,6 +1,5 @@
 body {
     font-family: "Lato", sans-serif;
-    background-color: deeppink;
 }
 
 .main-header {
@@ -9,7 +8,7 @@ body {
     font-size: 5vh;
 }
 
-.table-body {
+.table-body, .settings-body{
     /*box-shadow: 4px 4px rgba(0, 0, 0, 0.32);*/
     padding: 0;
 }
@@ -93,3 +92,5 @@ body {
 .add-girl-button {
     font-size: 3vh;
 }
+
+.settings-body
