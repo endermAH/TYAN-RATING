@@ -1,3 +1,5 @@
+var currentBoard;
+
 $(document).on('click','#add-girl-button', function(){
     var stored = localStorage['girlDate'];
     var girlDate = [[],[],[]];
@@ -20,23 +22,33 @@ $(document).on('click','#add-girl-button', function(){
 });
 
 $(document).ready(function () {
-    //new ClipboardJS('#copy-dump');
+
+    currentBoard = localStorage['current']?JSON.parse(localStorage['current']):0;
+
+
+    var localBoards = localStorage['localBoards'];
+    var boards = [];
+    if (localBoards) boards = JSON.parse(localBoards); else boards = [];
+    var girlDate = boards[currentBoard]?boards[currentBoard]:[[],[],[]];
+    //Получение экспорта
+    // var stored = localStorage['girlDate'];
+    // var girlDate = [[],[],[]];
+    // if (stored) girlDate = JSON.parse(stored); else girlDate = [[],[],[]];
+
+
+
     showList();
-
-    var stored = localStorage['girlDate'];
-    var girlDate = [[],[],[]];
-
-    if (stored) girlDate = JSON.parse(stored); else girlDate = [[],[],[]];
     $("#export").val(JSON.stringify(girlDate));
+
 })
 
 function sortGirls() {
-    var stored = localStorage['girlDate'];
-    var girlDate = [[],[],[]];
     var i, j;
 
-    if (stored) girlDate = JSON.parse(stored); else return false;
-    var tmpDate = girlDate[1].slice();
+    var localBoards = localStorage['localBoards'];
+    var boards = [];
+    if (localBoards) boards = JSON.parse(localBoards); else boards = [];
+    var girlDate = boards[currentBoard]?boards[currentBoard]:[[],[],[]];
 
     for(i = 0; i < girlDate[0].length-1; i++){
         for(j = i; j < girlDate[0].length; j++){
@@ -60,11 +72,17 @@ function sortGirls() {
 }
 
 function showList(){
-    var stored = localStorage['girlDate'];
+    // var stored = localStorage['girlDate'];
     var i = 0;
-    var girlDate = [[],[],[]];
+    // var girlDate = [[],[],[]];
 
-    if (stored) girlDate = JSON.parse(stored); else girlDate = [[],[],[]];
+    // if (stored) girlDate = JSON.parse(stored); else girlDate = [[],[],[]];
+
+    var localBoards = localStorage['localBoards'];
+    var boards = [];
+    if (localBoards) boards = JSON.parse(localBoards); else boards = [];
+    var girlDate = boards[currentBoard]?boards[currentBoard]:[[],[],[]];
+
     console.log(girlDate);
     console.log(girlDate[0].length);
 
@@ -111,10 +129,15 @@ $(document).on('click', 'i[id^="heart-"]', function (e) {
     id = id.slice(6, id.length);
     id = parseInt(id);
 
-    var stored = localStorage['girlDate'];
-    var girlDate = [[],[],[]];
+    // var stored = localStorage['girlDate'];
+    // var girlDate = [[],[],[]];
 
-    if (stored) girlDate = JSON.parse(stored); else girlDate = [[],[],[]];
+    // if (stored) girlDate = JSON.parse(stored); else girlDate = [[],[],[]];
+
+    var localBoards = localStorage['localBoards'];
+    var boards = [];
+    if (localBoards) boards = JSON.parse(localBoards); else boards = [];
+    var girlDate = boards[currentBoard]?boards[currentBoard]:[[],[],[]];
 
     girlDate[2][id]++;
     localStorage['girlDate'] = JSON.stringify(girlDate);
@@ -133,10 +156,15 @@ $(document).on('click', 'i[id^="broken-heart-"]', function (e) {
     console.log(id);
 
 
-    var stored = localStorage['girlDate'];
-    var girlDate = [[],[],[]];
+    // var stored = localStorage['girlDate'];
+    // var girlDate = [[],[],[]];
 
-    if (stored) girlDate = JSON.parse(stored); else girlDate = [[],[],[]];
+    // if (stored) girlDate = JSON.parse(stored); else girlDate = [[],[],[]];
+
+    var localBoards = localStorage['localBoards'];
+    var boards = [];
+    if (localBoards) boards = JSON.parse(localBoards); else boards = [];
+    var girlDate = boards[currentBoard]?boards[currentBoard]:[[],[],[]];
 
     girlDate[2][id]--;
     localStorage['girlDate'] = JSON.stringify(girlDate);
@@ -147,6 +175,12 @@ $(document).on('click', 'i[id^="broken-heart-"]', function (e) {
 });
 
 $(document).on('click','#import-btn', function(){
-    localStorage['girlDate'] = $("#import").val();
+    var localBoards = localStorage['localBoards'];
+    var boards = [];
+    if (localBoards) boards = JSON.parse(localBoards); else boards = [];
+
+    boards[currentBoard] = JSON.parse($("#import").val());
+    localStorage['localBoards'] = JSON.stringify(boards);
+
     showList();
 });
